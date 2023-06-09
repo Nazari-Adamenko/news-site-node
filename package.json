@@ -1,0 +1,22 @@
+{
+  "name": "news-site-node",
+  "version": "1.0.0",
+  "description": "news-site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nazari-Adamenko/news-site-node.git"
+  },
+  "author": "Adamenko N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nazari-Adamenko/news-site-node/issues"
+  },
+  "homepage": "https://github.com/Nazari-Adamenko/news-site-node#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
