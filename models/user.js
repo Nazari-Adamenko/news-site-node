@@ -1,14 +1,12 @@
-'use strict';
+const { cryptPassword } = require('../utils/encryptionUtils')
+
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      User.hasMany(models.Post);
+      User.hasMany(models.Post, {
+        foreignKey: 'userId'
+      });
     }
   }
   User.init({
@@ -20,5 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+
+  User.beforeCreate((user, options) => {
+    cryptPassword(user.password, (err, hash) => {
+      if(err) throw err;
+      if(!hash == undefined) console.error('Hash is missing');
+      user.password = hashedPassword;
+    });
+  });
+
   return User;
 };
