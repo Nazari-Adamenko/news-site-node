@@ -11,6 +11,9 @@ module.exports = {
       firstName: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: true
+        }
       },
       email: {
         type: Sequelize.STRING,
@@ -24,7 +27,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-          len: [6, 15]
+          len: [6, 15],
         }
       },
       avatar: {

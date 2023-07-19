@@ -8,12 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: true
+        }
       },
       content: {
         type: Sequelize.STRING
